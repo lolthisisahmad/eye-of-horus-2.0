@@ -1,0 +1,51 @@
+
+body.egyptian-theme {
+  background: linear-gradient(to bottom, #f8e8c0, #e3c994);
+  font-family: 'Georgia', serif;
+  color: #3b2f2f;
+  margin: 0;
+  padding: 0;
+}
+.navbar {
+  background-color: #3b2f2f;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+.navbar a {
+  color: #f8e8c0;
+  margin: 0 10px;
+  text-decoration: none;
+}
+.navbar .logo {
+  height: 40px;
+}
+.hero-section, .page-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+.btn {
+  background-color: #af8c55;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  font-size: 1em;
+  margin-top: 20px;
+  cursor: pointer;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #3b2f2f;
+  color: #f8e8c0;
+}
+.lang-switch {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+video {
+  max-width: 100%;
+  height: auto;
+}
