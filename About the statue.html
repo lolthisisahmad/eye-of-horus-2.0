@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About the Statue</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Cairo', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Fullscreen video background */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Main content styles */
+    .content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: #f0e6d2;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #ffd700;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    p {
+      max-width: 800px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      color: #fdfaf6;
+      text-shadow: 1px 1px 3px #000;
+      backdrop-filter: blur(4px);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      color: #ccc;
+      font-size: 0.9rem;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Video Background -->
+  <video autoplay muted loop id="bg-video">
+    <source src="egypt.mp4" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h1>About the Statue</h1>
+    <p>
+      This statue is called “Abo El Houl” or “The Great Sphinx of Giza”, which is illustrated as a lion with the head of a human. It was built around <b>2500 BCE</b> during Egypt's Old Kingdom (4th Dynasty). The statue symbolizes strength and wisdom in ancient cultures. Most famously associated with ancient Egypt, the Great Sphinx of Giza guards the pyramids and is thought to represent Pharaoh Khafre. In Greek mythology, the Sphinx posed riddles, punishing those who failed to answer. Its enigmatic nature has made it a symbol of mystery throughout history.
+    </p>
+  </div>
+
+  <footer>
+    © 2024 Eyes of the History Museum | All rights reserved.
+  </footer>
+</body>
+</html>

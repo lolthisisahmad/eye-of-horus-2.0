@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>عن التمثال</title>
+
+  <!-- Arabic Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Cairo', sans-serif;
+      overflow: hidden;
+      position: relative;
+      direction: rtl;
+    }
+
+    /* Fullscreen video background */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Main content styles */
+    .content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: #f0e6d2;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #ffd700;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    p {
+      max-width: 800px;
+      font-size: 1.2rem;
+      line-height: 2;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      color: #fdfaf6;
+      text-shadow: 1px 1px 3px #000;
+      backdrop-filter: blur(4px);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      color: #ccc;
+      font-size: 0.9rem;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Video Background -->
+  <video autoplay muted loop id="bg-video">
+    <source src="egypt.mp4" type="video/mp4" />
+    متصفحك لا يدعم تشغيل الفيديو.
+  </video>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h1>عن التمثال</h1>
+    <p>
+      يُعرف هذا التمثال باسم "أبو الهول" أو "التمثال العظيم في الجيزة"، ويُصوَّر على شكل أسد برأس إنسان. بُني هذا التمثال حوالي <b>2500 قبل الميلاد</b> خلال المملكة القديمة (الأسرة الرابعة). يُرمز به إلى القوة والحكمة في الثقافات القديمة. ويُعتبر أبو الهول من أبرز رموز الحضارة المصرية، حيث يحرس الأهرامات ويُعتقد أنه يُجسّد الفرعون خفرع. في الأساطير اليونانية، كان أبو الهول يطرح الألغاز ويُعاقب من لا يعرف الإجابة. وقد أصبح رمزًا للغموض على مر العصور.
+    </p>
+  </div>
+
+  <footer>
+    © 2024 متحف عيون التاريخ | جميع الحقوق محفوظة
+  </footer>
+</body>
+</html>
