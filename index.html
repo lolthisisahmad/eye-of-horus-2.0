@@ -2,30 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pharaohic LEADAR</title>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Georgia', serif;
-      background-image: url('images/background.png'); /* Update path if needed */
+      background-image: url('images/background.png');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
       text-align: left;
+      color: #222;
     }
 
     .navbar {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      padding: 10px 20px;
+      padding: 10px;
       background-color: #f8f8f8cc;
-      gap: 20px;
-      flex-wrap: wrap;
+      gap: 10px;
       border-bottom: 1px solid #ccc;
     }
 
@@ -36,7 +42,7 @@
     }
 
     .logo-container img,
-    .logo-container .logo-fallback {
+    .logo-fallback {
       height: 40px;
     }
 
@@ -48,14 +54,17 @@
 
     nav {
       display: flex;
-      gap: 15px;
+      flex-wrap: wrap;
+      gap: 10px;
       align-items: center;
+      justify-content: center;
     }
 
     nav a {
       text-decoration: none;
       color: #333;
       font-weight: bold;
+      font-size: 1rem;
     }
 
     nav a:hover {
@@ -67,9 +76,8 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: flex-start;
-      padding: 40px;
-      gap: 40px;
-      color: #222;
+      padding: 20px;
+      gap: 20px;
     }
 
     .text-content {
@@ -79,38 +87,39 @@
 
     .text-content h1 {
       font-family: 'Cairo', sans-serif;
+      font-size: 2rem;
     }
 
-    /* About Us Section Styles */
+    .text-content p {
+      font-size: 1rem;
+    }
+
     .about-us {
-      width: 100%;
+      width: 90%;
       max-width: 800px;
-      margin: 40px auto;
-      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+      margin: 20px auto;
+      background-color: rgba(255, 255, 255, 0.85);
       padding: 20px;
       border-radius: 8px;
     }
 
     .about-us h2 {
       font-family: 'Cairo', sans-serif;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
     }
 
     .about-us-content {
-      max-height: 300px; /* Set the height limit for scrollable area */
-      overflow-y: scroll; /* Enable vertical scrolling */
+      max-height: 300px;
+      overflow-y: auto;
       padding-right: 10px;
+      font-size: 1rem;
     }
 
-    /* Floating Video Styles */
     .side-video {
-      position: relative; /* Positioning it relative to its parent container */
-      margin-top: 40px;
+      margin: 20px auto;
       max-width: 500px;
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
+      width: 90%;
     }
 
     .side-video video {
@@ -121,12 +130,12 @@
 
     .controls {
       text-align: center;
-      margin-top: 10px;
+      margin: 10px auto 30px;
     }
 
     .controls button {
-      padding: 10px;
-      background-color: #ff6600; /* Orange color */
+      padding: 8px 12px;
+      background-color: #ff6600;
       color: white;
       border: none;
       border-radius: 5px;
@@ -136,18 +145,49 @@
     }
 
     .controls button:hover {
-      background-color: #e65c00; /* Darker orange for hover effect */
+      background-color: #e65c00;
+    }
+
+    #timestamp {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 14px;
+      color: #333;
     }
 
     @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        padding: 15px 5px;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
       .page-section {
         flex-direction: column;
         align-items: center;
+        padding: 10px;
       }
 
-      .side-video {
-        max-width: 300px;
-        right: 10px;
+      .text-content h1 {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      .text-content p {
+        text-align: center;
+      }
+
+      .about-us-content {
+        max-height: 250px;
+        font-size: 0.95rem;
+      }
+
+      .controls button {
+        font-size: 13px;
+        padding: 6px 10px;
       }
     }
   </style>
@@ -158,14 +198,14 @@
     <div class="logo-container">
       <img src="images/eye-of-horus.png" alt="LEADAR Logo"
            onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-      <div class="logo-fallback"></div>
+      <div class="logo-fallback">LEADAR</div>
     </div>
     <nav>
-      <a href="index.html">Home</a> | 
-      <a href="indexarab.html">العربية</a> 
-      <a href="video1.html">Sign Language</a> 
+      <a href="index.html">Home</a>
+      <a href="indexarab.html">العربية</a>
+      <a href="video1.html">Sign Language</a>
       <a href="chatbot.html">Chatbot</a>
-       <a href="About the statue.html">About Sphinx</a>
+      <a href="About the statue.html">About Sphinx</a>
     </nav>
   </header>
 
@@ -181,27 +221,22 @@
     <h2>About Us</h2>
     <div class="about-us-content">
       <p>
-        Welcome to Eye of Horus! We are a team dedicated to bringing the wonders of ancient Egypt to life through AI technology. Our platform combines cutting-edge artificial intelligence with rich historical knowledge to create immersive experiences. Whether you're interested in exploring ancient architecture, learning about Egyptian gods, or understanding the culture and daily life of the Pharaohs, we're here to guide you on your journey!
+        Welcome to Eye of Horus! We are a team dedicated to bringing the wonders of ancient Egypt to life through AI technology.
+        Our platform combines cutting-edge artificial intelligence with rich historical knowledge to create immersive experiences.
       </p>
       <p>
-        Our mission is to make learning about Ancient Egypt accessible, interactive, and fun. Using advanced AI, we strive to recreate historical sites, texts, and stories that showcase the grandeur of one of the world's oldest civilizations. Join us as we bring the past into the present and discover the mysteries of Egypt's glorious history.
+        Whether you're interested in exploring ancient architecture, learning about Egyptian gods, or understanding the culture
+        and daily life of the Pharaohs, we're here to guide you on your journey!
       </p>
       <p>
-        If you have any questions or would like to learn more, don't hesitate to reach out to our team. We're excited to have you on this adventure! 
-      </p>
-      <p>
-        Contacts:
-      </p>
-      <p>
-        Ahmad Hani (Chief Developer): lomngl1@gmail.com
-      </p>
-      <p>
+        Contacts:<br>
+        Ahmad Hani (Chief Developer): lomngl1@gmail.com<br>
         Mohamed Adel (Original Creator): ma4957762@gmail.com
       </p>
     </div>
   </div>
 
-  <!-- Video Section Below "About Us" -->
+  <!-- Video Section -->
   <div class="side-video">
     <video id="introVideo" src="assets/hi.mp4" autoplay muted loop></video>
   </div>
@@ -219,18 +254,11 @@
     const pauseBtn = document.getElementById('pauseBtn');
     const timestamp = document.getElementById('timestamp');
 
-    // Mute/Unmute button functionality
     muteBtn.addEventListener('click', () => {
-      if (video.muted) {
-        video.muted = false;
-        muteBtn.textContent = 'Mute';
-      } else {
-        video.muted = true;
-        muteBtn.textContent = 'Unmute';
-      }
+      video.muted = !video.muted;
+      muteBtn.textContent = video.muted ? 'Unmute' : 'Mute';
     });
 
-    // Pause/Play button functionality
     pauseBtn.addEventListener('click', () => {
       if (video.paused) {
         video.play();
@@ -241,11 +269,10 @@
       }
     });
 
-    // Update timestamp while the video is playing
     video.addEventListener('timeupdate', () => {
       const minutes = Math.floor(video.currentTime / 60);
       const seconds = Math.floor(video.currentTime % 60);
-      timestamp.textContent = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+      timestamp.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     });
   </script>
 </body>
