@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pharaohic LEADAR</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-image: url('images/background.png'); /* Update path if needed */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      text-align: left;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #f8f8f8cc;
+      gap: 20px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-container img,
+    .logo-container .logo-fallback {
+      height: 40px;
+    }
+
+    .logo-fallback {
+      display: none;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #0077cc;
+    }
+
+    .page-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px;
+      gap: 40px;
+      color: #222;
+    }
+
+    .text-content {
+      flex: 1 1 300px;
+      max-width: 500px;
+    }
+
+    .text-content h1 {
+      font-family: 'Cairo', sans-serif;
+    }
+
+    /* About Us Section Styles */
+    .about-us {
+      width: 100%;
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .about-us h2 {
+      font-family: 'Cairo', sans-serif;
+      margin-bottom: 20px;
+    }
+
+    .about-us-content {
+      max-height: 300px; /* Set the height limit for scrollable area */
+      overflow-y: scroll; /* Enable vertical scrolling */
+      padding-right: 10px;
+    }
+
+    /* Floating Video Styles */
+    .side-video {
+      position: relative; /* Positioning it relative to its parent container */
+      margin-top: 40px;
+      max-width: 500px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+
+    .side-video video {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .controls {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .controls button {
+      padding: 10px;
+      background-color: #ff6600; /* Orange color */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+      font-size: 14px;
+    }
+
+    .controls button:hover {
+      background-color: #e65c00; /* Darker orange for hover effect */
+    }
+
+    @media (max-width: 768px) {
+      .page-section {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .side-video {
+        max-width: 300px;
+        right: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body class="egyptian-theme">
+  <header class="navbar">
+    <div class="logo-container">
+      <img src="images/eye-of-horus.png" alt="LEADAR Logo"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+      <div class="logo-fallback">L</div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a> | 
+      <a href="indexarab.html">العربية</a> 
+      <a href="video1.html">Sign Language</a> 
+      <a href="chatbot.html">Chatbot</a>
+    </nav>
+  </header>
+
+  <main class="page-section">
+    <div class="text-content">
+      <h1>Welcome to Eye of Horus.</h1>
+      <p>Explore Ancient Egypt with AI</p>
+    </div>
+  </main>
+
+  <!-- About Us Section -->
+  <div class="about-us">
+    <h2>About Us</h2>
+    <div class="about-us-content">
+      <p>
+        Welcome to Eye of Horus! We are a team dedicated to bringing the wonders of ancient Egypt to life through AI technology. Our platform combines cutting-edge artificial intelligence with rich historical knowledge to create immersive experiences. Whether you're interested in exploring ancient architecture, learning about Egyptian gods, or understanding the culture and daily life of the Pharaohs, we're here to guide you on your journey!
+      </p>
+      <p>
+        Our mission is to make learning about Ancient Egypt accessible, interactive, and fun. Using advanced AI, we strive to recreate historical sites, texts, and stories that showcase the grandeur of one of the world's oldest civilizations. Join us as we bring the past into the present and discover the mysteries of Egypt's glorious history.
+      </p>
+      <p>
+        If you have any questions or would like to learn more, don't hesitate to reach out to our team. We're excited to have you on this adventure! 
+      </p>
+      <p>
+        Contacts:
+      </p>
+      <p>
+        Ahmad Hani (Chief Developer): lomngl1@gmail.com
+      </p>
+      <p>
+        Mohamed Adel (Original Creator): 
+      </p>
+    </div>
+  </div>
+
+  <!-- Video Section Below "About Us" -->
+  <div class="side-video">
+    <video id="introVideo" src="C:/Users/fadiw/Downloads/Pharaohic_LEADAR_Rebuilt_Full/pages/assets/hi.mp4" autoplay muted loop></video>
+  </div>
+
+  <!-- Video Controls -->
+  <div class="controls">
+    <button id="muteBtn">Mute</button>
+    <button id="pauseBtn">Pause</button>
+    <span id="timestamp">00:00</span>
+  </div>
+
+  <script>
+    const video = document.getElementById('introVideo');
+    const muteBtn = document.getElementById('muteBtn');
+    const pauseBtn = document.getElementById('pauseBtn');
+    const timestamp = document.getElementById('timestamp');
+
+    // Mute/Unmute button functionality
+    muteBtn.addEventListener('click', () => {
+      if (video.muted) {
+        video.muted = false;
+        muteBtn.textContent = 'Mute';
+      } else {
+        video.muted = true;
+        muteBtn.textContent = 'Unmute';
+      }
+    });
+
+    // Pause/Play button functionality
+    pauseBtn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        pauseBtn.textContent = 'Pause';
+      } else {
+        video.pause();
+        pauseBtn.textContent = 'Play';
+      }
+    });
+
+    // Update timestamp while the video is playing
+    video.addEventListener('timeupdate', () => {
+      const minutes = Math.floor(video.currentTime / 60);
+      const seconds = Math.floor(video.currentTime % 60);
+      timestamp.textContent = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    });
+  </script>
+</body>
+</html>

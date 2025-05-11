@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>فرعوني LEADAR</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background-image: url('images/background.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      text-align: right;
+      direction: rtl;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #f8f8f8cc;
+      gap: 20px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-container img,
+    .logo-container .logo-fallback {
+      height: 40px;
+    }
+
+    .logo-fallback {
+      display: none;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #0077cc;
+    }
+
+    .page-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px;
+      gap: 40px;
+      color: #222;
+    }
+
+    .text-content {
+      flex: 1 1 300px;
+      max-width: 500px;
+    }
+
+    .text-content h1 {
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .about-us {
+      width: 100%;
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .about-us h2 {
+      font-family: 'Cairo', sans-serif;
+      margin-bottom: 20px;
+    }
+
+    .about-us-content {
+      max-height: 300px;
+      overflow-y: scroll;
+      padding-right: 10px;
+    }
+
+    .side-video {
+      position: relative;
+      margin-top: 40px;
+      max-width: 500px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+
+    .side-video video {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .controls {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .controls button {
+      padding: 10px;
+      background-color: #ff6600;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+      font-size: 14px;
+    }
+
+    .controls button:hover {
+      background-color: #e65c00;
+    }
+
+    @media (max-width: 768px) {
+      .page-section {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .side-video {
+        max-width: 300px;
+        right: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body class="egyptian-theme">
+  <header class="navbar">
+    <div class="logo-container">
+      <img src="images/eye-of-horus.png" alt="شعار LEADAR"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+      <div class="logo-fallback">ل</div>
+    </div>
+    <nav>
+      <a href="indexarab.html">الرئيسية</a> | 
+      <a href="index.html">English</a> 
+      <a href="video1.html">لغه الاشاره</a>
+      <a href="chatbot.html">المساعد</a>
+    </nav>
+  </header>
+
+  <main class="page-section">
+    <div class="text-content">
+      <h1>مرحباً بك في عين حورس</h1>
+      <p>استكشف مصر القديمة باستخدام الذكاء الاصطناعي</p>
+    </div>
+  </main>
+
+  <!-- About Us Section -->
+  <div class="about-us">
+    <h2>من نحن</h2>
+    <div class="about-us-content">
+      <p>
+        مرحباً بك في عين حورس! نحن فريق مكرّس لإحياء عجائب مصر القديمة من خلال تكنولوجيا الذكاء الاصطناعي. يجمع منصتنا بين الذكاء الاصطناعي الحديث والمعرفة التاريخية العميقة لتقديم تجارب غامرة.
+      </p>
+      <p>
+        سواء كنت مهتماً باستكشاف المعمار القديم، أو التعرف على الآلهة المصرية، أو فهم الحياة اليومية للفراعنة، فنحن هنا لمساعدتك.
+      </p>
+      <p>
+        مهمتنا هي جعل تعلم التاريخ المصري القديم متاحاً وتفاعلياً وممتعاً. باستخدام تقنيات الذكاء الاصطناعي، نسعى لإعادة بناء المواقع والنصوص والقصص التي تعكس عظمة واحدة من أقدم الحضارات في العالم.
+      </p>
+      <p>
+        إذا كانت لديك أسئلة أو ترغب في معرفة المزيد، لا تتردد في التواصل معنا. يسعدنا أن تنضم إلينا في هذه الرحلة!
+      </p>
+      <p>
+        جهات الاتصال:
+      </p>
+      <p>
+        أحمد هاني (المطوّر الرئيسي): lomngl1@gmail.com
+      </p>
+      <p>
+        محمد عادل (المؤسس الأصلي):
+      </p>
+    </div>
+  </div>
+
+  <!-- Video Section -->
+  <div class="side-video">
+    <video id="introVideo" src="C:\Users\fadiw\Downloads\Pharaohic_LEADAR_Rebuilt_Full\pages\assets\2.mp4" autoplay muted loop></video>
+  </div>
+
+  <!-- Video Controls -->
+  <div class="controls">
+    <button id="muteBtn">كتم الصوت</button>
+    <button id="pauseBtn">إيقاف مؤقت</button>
+    <span id="timestamp">00:00</span>
+  </div>
+
+  <script>
+    const video = document.getElementById('introVideo');
+    const muteBtn = document.getElementById('muteBtn');
+    const pauseBtn = document.getElementById('pauseBtn');
+    const timestamp = document.getElementById('timestamp');
+
+    muteBtn.addEventListener('click', () => {
+      if (video.muted) {
+        video.muted = false;
+        muteBtn.textContent = 'كتم الصوت';
+      } else {
+        video.muted = true;
+        muteBtn.textContent = 'إلغاء الكتم';
+      }
+    });
+
+    pauseBtn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        pauseBtn.textContent = 'إيقاف مؤقت';
+      } else {
+        video.pause();
+        pauseBtn.textContent = 'تشغيل';
+      }
+    });
+
+    video.addEventListener('timeupdate', () => {
+      const minutes = Math.floor(video.currentTime / 60);
+      const seconds = Math.floor(video.currentTime % 60);
+      timestamp.textContent = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    });
+  </script>
+</body>
+</html>

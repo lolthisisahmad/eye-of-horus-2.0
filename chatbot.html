@@ -1,0 +1,217 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LEADAR Chatbot</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    #bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      z-index: -1;
+      object-fit: cover;
+    }
+    .info, .chat, .input-area {
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      padding: 1rem;
+      margin: 1rem auto;
+      max-width: 90%;
+      width: 800px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .chat {
+      height: 60vh;
+      overflow-y: auto;
+    }
+    .message {
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-radius: 15px;
+    }
+    .user-message {
+      background-color: #d4af37;
+      color: #000;
+      text-align: right;
+    }
+    .bot-message {
+      background-color: #f2e5a0;
+      color: #000;
+      text-align: left;
+    }
+    .input-area {
+      display: flex;
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    #user-input {
+      flex-grow: 1;
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+    #send-button {
+      padding: 1rem 2rem;
+      margin-left: 1rem;
+      background-color: #d4af37;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop id="bg-video">
+    <source src="egypt.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+   <div class="info">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="LEADAR Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+            <div class="logo-fallback">L</div>
+        </div>
+        <div class="name">
+            <h1>Assistant</h1>
+        </div>
+    </div>
+    
+    <div class="chat" id="chat-container">
+        <div class="message bot-message">
+            Hello! I'm the LEADAR Assistant. How can I help you today?
+        </div>
+    </div>
+
+    <div class="input-area">
+        <input type="text" id="user-input" placeholder="Type your message here...">
+        <button id="send-button">Send</button>
+    </div>
+
+    <script>
+        const chatContainer = document.getElementById('chat-container');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+
+        const responses = {
+            // English responses
+            'hello': 'Hello! How can I assist you today?',
+            'hi': 'Hi there! How can I help you?',
+            'how are you': 'I\'m doing well, thank you for asking! How can I assist you?',
+            'what is leadar': 'LEADAR is a project focused on helping people learn and understand sign language through advanced technology.',
+            'what is the sphinx': 'The Great Sphinx of Giza is one of the most iconic monuments in Egypt. It\'s a limestone statue with a human head and lion\'s body, located on the Giza Plateau near Cairo. It measures about 73 meters long, 20 meters high, and 19 meters wide.',
+            'how old is the sphinx': 'Most scholars believe the Sphinx was constructed during the reign of Pharaoh Khafre (about 2558–2532 BCE) during the Old Kingdom\'s Fourth Dynasty, though some theories suggest it might be older.',
+            'what are the dimensions': 'The Great Sphinx has impressive dimensions: Length: approximately 73 meters (240 feet), Height: about 20 meters (66 feet), and Width: roughly 19 meters (62 feet) at its widest point.',
+            'what is it made of': 'The Great Sphinx was carved directly from the natural limestone bedrock of the Giza plateau.',
+            'tell me about the face': 'The human head of the Sphinx is believed to represent Pharaoh Khafre, symbolizing wisdom and intellect. The nose and ceremonial beard are missing, possibly due to deliberate destruction or natural erosion.',
+            'why was it built': 'The Sphinx likely served as a guardian statue for Khafre\'s pyramid complex. It may have had spiritual significance, representing a connection between the sun god Ra and the pharaoh.',
+            
+            // Arabic responses
+            'مرحبا': 'مرحباً! كيف يمكنني مساعدتك اليوم؟',
+            'السلام عليكم': 'وعليكم السلام ورحمة الله وبركاته! كيف يمكنني مساعدتك؟',
+            'كيف حالك': 'بخير الحمد لله، كيف يمكنني مساعدتك؟',
+            'ما هو ليدار': 'ليدار هو مشروع يركز على مساعدة الناس في تعلم وفهم لغة الإشارة من خلال التكنولوجيا المتقدمة.',
+            'ما هو ابو الهول': 'أبو الهول هو أحد أشهر الآثار في مصر. وهو تمثال من الحجر الجيري برأس إنسان وجسد أسد، يقع في هضبة الجيزة بالقرب من القاهرة. يبلغ طوله حوالي 73 متراً وارتفاعه 20 متراً وعرضه 19 متراً.',
+            'كم عمر ابو الهول': 'يعتقد معظم العلماء أن أبو الهول تم بناؤه خلال عهد الفرعون خفرع (حوالي 2558-2532 قبل الميلاد) في عصر الدولة القديمة (الأسرة الرابعة)، رغم وجود نظريات تقترح أنه قد يكون أقدم من ذلك.',
+            'ما هي ابعاده': 'أبعاد أبو الهول مثيرة للإعجاب: الطول: حوالي 73 متراً (240 قدماً)، الارتفاع: حوالي 20 متراً (66 قدماً)، والعرض: حوالي 19 متراً (62 قدماً) في أعرض نقطة.',
+            'مم صنع': 'تم نحت أبو الهول مباشرة من صخور الحجر الجيري الطبيعية في هضبة الجيزة.',
+            'اخبرني عن الوجه': 'يُعتقد أن رأس أبو الهول يمثل الفرعون خفرع، ويرمز إلى الحكمة والذكاء. الأنف واللحية الملكية مفقودان، ربما بسبب التدمير المتعمد أو التآكل الطبيعي.',
+            'لماذا تم بناؤه': 'من المحتمل أن أبو الهول كان تمثالاً حارساً لمجمع هرم خفرع. قد يكون له أهمية روحية، يمثل الصلة بين إله الشمس رع والفرعون.',
+            'default': 'I can help you learn about the Great Sphinx! You can ask about its history, dimensions, symbolism, or any specific features you\'re curious about. يمكنني مساعدتك في التعرف على أبو الهول! يمكنك السؤال عن تاريخه وأبعاده ورمزيته أو أي ميزات محددة تريد معرفتها.'
+        };
+
+        function addMessage(message, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+            messageDiv.textContent = message;
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function getBotResponse(userMessage) {
+            const message = userMessage.toLowerCase();
+            
+            // Keywords for different topics (English and Arabic)
+            const keywords = {
+                dimensions: ['size', 'length', 'height', 'width', 'big', 'large', 'dimensions', 'meters', 'feet',
+                           'حجم', 'طول', 'ارتفاع', 'عرض', 'كبير', 'ابعاد', 'متر', 'قدم'],
+                age: ['old', 'ancient', 'built', 'age', 'when', 'date', 'history', 'historical',
+                     'قديم', 'عمر', 'بناء', 'متى', 'تاريخ', 'تاريخي'],
+                material: ['made', 'material', 'limestone', 'rock', 'carved', 'built',
+                          'صنع', 'مادة', 'حجر', 'جيري', 'صخر', 'نحت', 'بناء'],
+                face: ['face', 'head', 'nose', 'beard', 'pharaoh', 'khafre',
+                      'وجه', 'راس', 'انف', 'لحية', 'فرعون', 'خفرع'],
+                purpose: ['why', 'purpose', 'built', 'reason', 'guardian',
+                         'لماذا', 'هدف', 'بناء', 'سبب', 'حارس'],
+                sphinx: ['sphinx', 'statue', 'monument',
+                        'ابو الهول', 'تمثال', 'اثر']
+            };
+
+            // Direct matches first
+            if (responses[message]) {
+                return responses[message];
+            }
+
+            // Detect language (simple check for Arabic characters)
+            const isArabic = /[\u0600-\u06FF]/.test(message);
+
+            // Check for keywords in the message
+            for (let category in keywords) {
+                if (keywords[category].some(keyword => message.includes(keyword))) {
+                    switch(category) {
+                        case 'dimensions':
+                            return isArabic ? responses['ما هي ابعاده'] : responses['what are the dimensions'];
+                        case 'age':
+                            return isArabic ? responses['كم عمر ابو الهول'] : responses['how old is the sphinx'];
+                        case 'material':
+                            return isArabic ? responses['مم صنع'] : responses['what is it made of'];
+                        case 'face':
+                            return isArabic ? responses['اخبرني عن الوجه'] : responses['tell me about the face'];
+                        case 'purpose':
+                            return isArabic ? responses['لماذا تم بناؤه'] : responses['why was it built'];
+                        case 'sphinx':
+                            return isArabic ? responses['ما هو ابو الهول'] : responses['what is the sphinx'];
+                    }
+                }
+            }
+
+            return responses['default'];
+        }
+
+        function handleUserInput() {
+            const message = userInput.value.trim();
+            if (message) {
+                addMessage(message, true);
+                userInput.value = '';
+                
+                setTimeout(() => {
+                    const botResponse = getBotResponse(message);
+                    addMessage(botResponse);
+                }, 500);
+            }
+        }
+
+        sendButton.addEventListener('click', handleUserInput);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleUserInput();
+            }
+        });
+    </script>
+</body>
+</html>
+
